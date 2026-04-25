@@ -42,7 +42,7 @@ window.addEventListener("scroll", setActive);
 
 // Reveal on scroll
 const revealEls = document.querySelectorAll(
-  ".section, .skill-card, .project, .stat, .edu-card, .contact-card"
+  ".section, .skill-card, .project, .stat, .edu-card, .contact-card, .resume-entry"
 );
 revealEls.forEach((el) => el.classList.add("reveal"));
 const io = new IntersectionObserver(
@@ -87,6 +87,14 @@ counters.forEach((c) => counterIO.observe(c));
 
 // Cursor glow on skill cards
 document.querySelectorAll(".skill-card").forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+    card.style.setProperty("--my", `${e.clientY - r.top}px`);
+  });
+});
+
+document.querySelectorAll(".resume-entry").forEach((card) => {
   card.addEventListener("mousemove", (e) => {
     const r = card.getBoundingClientRect();
     card.style.setProperty("--mx", `${e.clientX - r.left}px`);
