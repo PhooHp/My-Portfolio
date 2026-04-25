@@ -265,7 +265,7 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius);
 }
 .edu-bar { width: 4px; background: linear-gradient(var(--accent), transparent); border-radius: 2px; }
-.edu-card h4 { font-family: var(--font-display); margin-bottom: .25rem; }
+.edu-card h4 { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: .25rem; }
 .edu-school { color: var(--text-dim); font-size: 1.18rem; }
 .edu-year { color: var(--muted); font-size: 1.08rem; margin-top: .25rem; }
 .certificates { margin-top: 1.5rem; }
@@ -291,6 +291,11 @@ img { max-width: 100%; display: block; }
 }
 
 .stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.stats-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
 }
 .stat {
@@ -312,6 +317,56 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-display); font-size: 1.5rem; color: var(--accent);
 }
 .stat p { color: var(--text-dim); font-size: 1.12rem; margin-top: .25rem; }
+.about-approach {
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  margin-top: 1.35rem;
+}
+.about-approach h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: .9rem;
+}
+.approach-items {
+  display: grid;
+  gap: .75rem;
+}
+.approach-item {
+  display: flex;
+  align-items: flex-start;
+  gap: .8rem;
+  padding: .9rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.approach-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.approach-item h4 {
+  font-family: var(--font-display);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: .2rem;
+}
+.approach-item p {
+  color: var(--text-dim);
+  font-size: .95rem;
+  line-height: 1.45;
+}
 
 /* ============ SKILLS ============ */
 .skills-grid {
