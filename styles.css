@@ -691,7 +691,8 @@ html[data-theme="light"] .hl {
 
 /* ============ PROJECTS ============ */
 .projects {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
 }
 .project {
@@ -1134,6 +1135,7 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   }
 
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .contact-card {
     grid-template-columns: 1fr;
     gap: .85rem;
@@ -1153,4 +1155,8 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   .experience-top { flex-direction: column; gap: .45rem; }
   .experience-period { white-space: normal; width: fit-content; }
   .scroll-cue { display: none; }
+}
+
+@media (max-width: 640px) {
+  .projects { grid-template-columns: 1fr; }
 }
