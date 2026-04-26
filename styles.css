@@ -337,7 +337,7 @@ html[data-theme="light"] .hl {
     0 0 0 1px rgba(245, 165, 36, 0.4);
 }
 
-.education { margin-top: 2.5rem; }
+.education { margin-top: 3.4rem; }
 .education h3 {
   font-family: var(--font-display); font-size: 1.1rem;
   text-transform: uppercase; letter-spacing: 3px;
@@ -352,7 +352,7 @@ html[data-theme="light"] .hl {
 .edu-card h4 { font-family: var(--font-display); font-size: 1.18rem; margin-bottom: .25rem; }
 .edu-school { color: var(--text-dim); font-size: 1rem; }
 .edu-year { color: var(--muted); font-size: .92rem; margin-top: .25rem; }
-.certificates { margin-top: 1.5rem; }
+.certificates { margin-top: 2.2rem; }
 .certificates h3 {
   font-family: var(--font-display); font-size: 1.1rem;
   text-transform: uppercase; letter-spacing: 3px;
@@ -406,7 +406,7 @@ html[data-theme="light"] .hl {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.2rem;
-  margin-top: 1.35rem;
+  margin-top: .8rem;
 }
 .about-approach h3 {
   font-family: var(--font-display);
@@ -449,8 +449,10 @@ html[data-theme="light"] .hl {
 .approach-item p {
   color: var(--text-dim);
   font-size: .95rem;
-  line-height: 1.45;
+  line-height: 1.5;
   text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
 }
 
 /* ============ SKILLS ============ */
