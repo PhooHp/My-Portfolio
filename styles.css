@@ -817,9 +817,9 @@ html[data-theme="light"] .hl {
   font-weight: 600;
   font-size: .95rem;
   padding: .22rem .62rem;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(245, 165, 36, 0.2);
   border-radius: 999px;
-  background: rgba(255, 255, 255, .02);
+  background: rgba(245, 165, 36, 0.04);
 }
 .experience-summary {
   color: var(--text-dim);
