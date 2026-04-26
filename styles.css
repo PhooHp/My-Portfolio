@@ -190,11 +190,11 @@ html[data-theme="light"] .nav.scrolled {
 .nav-link-icon {
   display: inline-grid;
   place-items: center;
-  width: 18px;
-  height: 18px;
+  width: 19px;
+  height: 19px;
   opacity: .88;
 }
-.nav-link-icon svg { width: 18px; height: 18px; }
+.nav-link-icon svg { width: 19px; height: 19px; }
 .nav-link::after {
   content: "";
   position: absolute;
@@ -374,12 +374,12 @@ html[data-theme="light"] .theme-toggle {
     transform: translateY(2px);
   }
   .nav.scrolled .nav-link-icon {
-    width: 19px;
-    height: 19px;
+    width: 20px;
+    height: 20px;
   }
   .nav.scrolled .nav-link-icon svg {
-    width: 19px;
-    height: 19px;
+    width: 20px;
+    height: 20px;
   }
   .nav.scrolled .nav-link::after {
     display: none;
@@ -687,7 +687,14 @@ html[data-theme="light"] .hl {
   background: var(--accent-soft); display: grid; place-items: center;
 }
 .skill-card h3 { font-family: var(--font-display); margin-bottom: .5rem; }
-.skill-card p { color: var(--text-dim); font-size: 1rem; }
+.skill-card p {
+  color: var(--text-dim);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+}
 
 /* ============ PROJECTS ============ */
 .projects {
@@ -866,7 +873,7 @@ html[data-theme="light"] .hl {
 }
 .contact-card h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.08rem, 1.6vw, 1.35rem);
+  font-size: clamp(1rem, 1.45vw, 1.26rem);
   line-height: 1.35;
   margin-bottom: .6rem;
   max-width: 24ch;
