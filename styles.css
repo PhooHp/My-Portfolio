@@ -526,6 +526,91 @@ img { max-width: 100%; display: block; }
 }
 .contact-list a:hover { color: var(--accent); }
 
+/* ============ WHATSAPP QR MODAL ============ */
+.wa-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 6, 12, 0.72);
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+  z-index: 1200;
+}
+.wa-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.wa-modal-card {
+  width: min(380px, 92vw);
+  background:
+    linear-gradient(180deg, rgba(21, 24, 33, 0.9), rgba(15, 17, 24, 0.95)),
+    linear-gradient(120deg, rgba(255, 186, 80, 0.12), transparent 60%);
+  border: 1px solid var(--accent);
+  border-radius: 18px;
+  padding: 1.35rem 1.25rem 1.1rem;
+  text-align: center;
+  position: relative;
+  display: grid;
+  justify-items: center;
+  box-shadow:
+    0 24px 60px -28px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(245, 165, 36, 0.18) inset;
+  transform: translateY(12px) scale(0.98);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+.wa-modal.open .wa-modal-card {
+  transform: translateY(0) scale(1);
+}
+.wa-modal-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: .9rem;
+  letter-spacing: .6px;
+}
+.wa-modal-card img {
+  width: min(220px, 74vw);
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 14px;
+  border: 1px solid var(--accent);
+  background: #fff;
+  padding: .45rem;
+  box-shadow:
+    0 16px 34px -18px rgba(0, 0, 0, 0.65),
+    0 0 0 2px rgba(245, 165, 36, 0.35);
+}
+.wa-modal-card p {
+  margin-top: .85rem;
+  color: var(--text-dim);
+  font-size: .96rem;
+}
+.wa-close {
+  position: absolute;
+  top: .65rem;
+  right: .65rem;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color .22s, border-color .22s, background .22s, transform .22s;
+}
+.wa-close:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(245, 165, 36, 0.12);
+  transform: rotate(90deg);
+}
+
 /* ============ FOOTER ============ */
 .footer {
   text-align: center; padding: 3rem 1rem;

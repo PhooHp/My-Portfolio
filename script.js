@@ -101,3 +101,37 @@ document.querySelectorAll(".resume-entry").forEach((card) => {
     card.style.setProperty("--my", `${e.clientY - r.top}px`);
   });
 });
+
+// WhatsApp QR modal
+const waTrigger = document.querySelector("[data-whatsapp-trigger]");
+const waModal = document.getElementById("whatsapp-qr-modal");
+const waClose = document.querySelector("[data-wa-close]");
+
+if (waTrigger && waModal && waClose) {
+  const openWaModal = () => {
+    waModal.classList.add("open");
+    waModal.setAttribute("aria-hidden", "false");
+  };
+
+  const closeWaModal = () => {
+    waModal.classList.remove("open");
+    waModal.setAttribute("aria-hidden", "true");
+  };
+
+  waTrigger.addEventListener("click", (e) => {
+    e.preventDefault();
+    openWaModal();
+  });
+
+  waClose.addEventListener("click", closeWaModal);
+
+  waModal.addEventListener("click", (e) => {
+    if (e.target === waModal) closeWaModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && waModal.classList.contains("open")) {
+      closeWaModal();
+    }
+  });
+}
