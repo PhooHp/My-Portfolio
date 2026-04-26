@@ -1,6 +1,33 @@
 /* Phoo Wai Thaw — QS Portfolio scripts */
 document.documentElement.classList.add("js");
 
+// Theme toggle (dark / light)
+const root = document.documentElement;
+const themeToggle = document.querySelector(".theme-toggle");
+const THEME_KEY = "portfolio-theme";
+const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+const savedTheme = localStorage.getItem(THEME_KEY);
+const activeTheme = savedTheme || (prefersLight ? "light" : "dark");
+root.setAttribute("data-theme", activeTheme);
+
+const syncThemeToggle = (theme) => {
+  if (!themeToggle) return;
+  const isLight = theme === "light";
+  themeToggle.setAttribute("aria-pressed", String(isLight));
+  themeToggle.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
+  themeToggle.setAttribute("title", isLight ? "Switch to dark mode" : "Switch to light mode");
+};
+syncThemeToggle(activeTheme);
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const nextTheme = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+    root.setAttribute("data-theme", nextTheme);
+    localStorage.setItem(THEME_KEY, nextTheme);
+    syncThemeToggle(nextTheme);
+  });
+}
+
 // Year
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -42,7 +69,7 @@ window.addEventListener("scroll", setActive);
 
 // Reveal on scroll
 const revealEls = document.querySelectorAll(
-  ".section, .skill-card, .project, .stat, .edu-card, .contact-card, .resume-entry"
+  ".section, .skill-card, .project, .stat, .edu-card, .contact-card, .experience-card"
 );
 revealEls.forEach((el) => el.classList.add("reveal"));
 const io = new IntersectionObserver(
@@ -94,7 +121,7 @@ document.querySelectorAll(".skill-card").forEach((card) => {
   });
 });
 
-document.querySelectorAll(".resume-entry").forEach((card) => {
+document.querySelectorAll(".experience-card").forEach((card) => {
   card.addEventListener("mousemove", (e) => {
     const r = card.getBoundingClientRect();
     card.style.setProperty("--mx", `${e.clientX - r.left}px`);
