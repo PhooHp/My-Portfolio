@@ -33,9 +33,11 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 // Nav scroll state
 const nav = document.querySelector(".nav");
-window.addEventListener("scroll", () => {
-  nav.classList.toggle("scrolled", window.scrollY > 30);
-});
+const syncNavScrollState = () => {
+  nav.classList.toggle("scrolled", window.scrollY > 140);
+};
+window.addEventListener("scroll", syncNavScrollState);
+syncNavScrollState();
 
 // Mobile menu toggle
 const toggle = document.querySelector(".nav-toggle");
