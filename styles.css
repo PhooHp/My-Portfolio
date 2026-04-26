@@ -931,14 +931,16 @@ html[data-theme="light"] .wa-modal {
 .wa-modal {
   position: fixed;
   inset: 0;
-  background: rgba(4, 6, 12, 0.72);
-  backdrop-filter: blur(8px);
+  background:
+    radial-gradient(420px circle at 50% 30%, rgba(245, 165, 36, 0.08), transparent 42%),
+    rgba(4, 6, 12, 0.72);
+  backdrop-filter: blur(10px);
   display: grid;
   place-items: center;
   padding: 1rem;
   opacity: 0;
   pointer-events: none;
-  transition: opacity .25s ease;
+  transition: opacity .34s ease, backdrop-filter .34s ease, background .34s ease;
   z-index: 1200;
 }
 .wa-modal.open {
@@ -960,11 +962,19 @@ html[data-theme="light"] .wa-modal {
   box-shadow:
     0 24px 60px -28px rgba(0, 0, 0, 0.8),
     0 0 0 1px rgba(245, 165, 36, 0.18) inset;
-  transform: translateY(12px) scale(0.98);
-  transition: transform .28s ease, box-shadow .28s ease;
+  opacity: 0;
+  transform: translateY(20px) scale(0.94);
+  filter: blur(8px);
+  transition:
+    transform .42s cubic-bezier(.22, .61, .36, 1),
+    opacity .3s ease,
+    filter .42s cubic-bezier(.22, .61, .36, 1),
+    box-shadow .32s ease;
 }
 .wa-modal.open .wa-modal-card {
+  opacity: 1;
   transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 .wa-modal-card h3 {
   font-family: var(--font-display);
@@ -972,6 +982,9 @@ html[data-theme="light"] .wa-modal {
   color: var(--accent);
   margin-bottom: .9rem;
   letter-spacing: .6px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .28s ease .08s, transform .36s cubic-bezier(.22, .61, .36, 1) .08s;
 }
 .wa-modal-card img {
   width: min(220px, 74vw);
@@ -984,11 +997,28 @@ html[data-theme="light"] .wa-modal {
   box-shadow:
     0 16px 34px -18px rgba(0, 0, 0, 0.65),
     0 0 0 2px rgba(245, 165, 36, 0.35);
+  opacity: 0;
+  transform: translateY(14px) scale(.96);
+  transition:
+    opacity .3s ease .14s,
+    transform .42s cubic-bezier(.22, .61, .36, 1) .14s;
 }
 .wa-modal-card p {
   margin-top: .85rem;
   color: var(--text-dim);
   font-size: .96rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .28s ease .2s, transform .36s cubic-bezier(.22, .61, .36, 1) .2s;
+}
+.wa-modal.open .wa-modal-card h3,
+.wa-modal.open .wa-modal-card p {
+  opacity: 1;
+  transform: translateY(0);
+}
+.wa-modal.open .wa-modal-card img {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 .wa-close {
   position: absolute;
@@ -1003,7 +1033,18 @@ html[data-theme="light"] .wa-modal {
   font-size: 1.1rem;
   line-height: 1;
   cursor: pointer;
-  transition: color .22s, border-color .22s, background .22s, transform .22s;
+  opacity: 0;
+  transform: translateY(-6px) scale(.92);
+  transition:
+    color .22s,
+    border-color .22s,
+    background .22s,
+    transform .22s,
+    opacity .24s ease .1s;
+}
+.wa-modal.open .wa-close {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 .wa-close:hover {
   color: var(--accent);

@@ -140,11 +140,13 @@ if (waTrigger && waModal && waClose) {
   const openWaModal = () => {
     waModal.classList.add("open");
     waModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
   };
 
   const closeWaModal = () => {
     waModal.classList.remove("open");
     waModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
   };
 
   waTrigger.addEventListener("click", (e) => {
