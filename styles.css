@@ -112,9 +112,23 @@ html[data-theme="light"] .nav.scrolled {
 
 .nav-links { display: flex; gap: 2rem; }
 .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .42rem;
   font-size: 1rem; color: var(--text-dim);
   position: relative; padding: .25rem 0;
   transition: color .25s;
+}
+.nav-link-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+  opacity: .85;
+}
+.nav-link-icon svg {
+  width: 15px;
+  height: 15px;
 }
 .nav-link::after {
   content: ""; position: absolute; left: 0; bottom: -4px;
@@ -123,6 +137,10 @@ html[data-theme="light"] .nav.scrolled {
 }
 .nav-link:hover, .nav-link.active { color: var(--text); }
 .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.nav-link:hover .nav-link-icon,
+.nav-link.active .nav-link-icon {
+  opacity: 1;
+}
 
 .nav-toggle {
   display: none; background: none; border: 0; cursor: pointer;
@@ -770,7 +788,13 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   }
   .nav-links.open { transform: translateY(0); }
   .nav-links li { width: 100%; text-align: center; }
-  .nav-link { display: block; padding: 1rem; }
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    width: 100%;
+  }
   .nav-link::after { display: none; }
 
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
