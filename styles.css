@@ -701,6 +701,8 @@ html[data-theme="light"] .hl {
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   position: relative; overflow: hidden;
+  display: flex;
+  flex-direction: column;
   transition: transform .35s, border-color .35s;
 }
 .project::before {
@@ -718,8 +720,16 @@ html[data-theme="light"] .hl {
   font-family: var(--font-display); margin-bottom: 1rem;
 }
 .project h3 { font-family: var(--font-display); margin-bottom: .65rem; font-size: 1.12rem; }
-.project > p { color: var(--text-dim); margin-bottom: 1.15rem; font-size: 1rem; }
-.project-meta { border-top: 1px solid var(--border); padding-top: 1rem; }
+.project > p {
+  color: var(--text-dim);
+  margin-bottom: 1.15rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+}
+.project-meta { border-top: 1px solid var(--border); padding-top: 1rem; margin-top: auto; }
 .project-meta li {
   display: flex; justify-content: space-between;
   padding: .38rem 0; font-size: .95rem; color: var(--text);
@@ -831,10 +841,10 @@ html[data-theme="light"] .hl {
     linear-gradient(160deg, var(--surface), var(--surface-2));
   border: 1px solid var(--border);
   border-radius: 22px;
-  padding: clamp(1.1rem, 2vw, 1.35rem);
+  padding: clamp(.9rem, 1.6vw, 1.1rem);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, .9fr);
-  gap: 1rem;
+  gap: .85rem;
   position: relative;
   overflow: hidden;
   box-shadow: 0 22px 50px -42px rgba(0, 0, 0, 0.8);
@@ -852,13 +862,13 @@ html[data-theme="light"] .hl {
   z-index: 1;
 }
 .contact-copy {
-  padding: 1rem 1.1rem;
+  padding: .8rem .9rem;
 }
 .contact-card h3 {
   font-family: var(--font-display);
   font-size: clamp(1.08rem, 1.6vw, 1.35rem);
   line-height: 1.35;
-  margin-bottom: .75rem;
+  margin-bottom: .6rem;
   max-width: 24ch;
   text-align: left;
 }
@@ -866,20 +876,20 @@ html[data-theme="light"] .hl {
   color: var(--text-dim);
   font-size: .98rem;
   max-width: 38ch;
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
 .contact-list {
   position: relative;
   display: grid;
-  gap: .8rem;
+  gap: .7rem;
 }
 .contact-list li {
   display: grid;
   grid-template-columns: 46px minmax(0, 1fr);
   gap: .85rem;
   align-items: center;
-  padding: 1rem;
+  padding: .85rem .95rem;
   border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.02);
@@ -1138,12 +1148,12 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .contact-card {
     grid-template-columns: 1fr;
-    gap: .85rem;
-    padding: .95rem;
+    gap: .75rem;
+    padding: .85rem;
     border-radius: 20px;
   }
   .contact-copy {
-    padding: .85rem .9rem;
+    padding: .72rem .8rem;
   }
   .contact-card h3 {
     max-width: none;
