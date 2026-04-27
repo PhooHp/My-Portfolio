@@ -57,17 +57,62 @@ document.querySelectorAll(".nav-link").forEach((l) =>
 // Active nav highlight on scroll
 const sections = document.querySelectorAll("section[id], header[id]");
 const navLinks = document.querySelectorAll(".nav-link");
+let lockedSectionId = null;
+let releaseLockTimer = null;
+
+const activateNavLink = (targetId) => {
+  navLinks.forEach((l) => l.classList.remove("active"));
+  const active = document.querySelector(`.nav-link[href="#${targetId}"]`);
+  if (active) active.classList.add("active");
+};
+
 const setActive = () => {
+  if (lockedSectionId) {
+    activateNavLink(lockedSectionId);
+    return;
+  }
+
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+    const lastSection = sections[sections.length - 1];
+    activateNavLink(lastSection.id);
+    return;
+  }
+
   const y = window.scrollY + 120;
   sections.forEach((sec) => {
     if (y >= sec.offsetTop && y < sec.offsetTop + sec.offsetHeight) {
-      navLinks.forEach((l) => l.classList.remove("active"));
-      const active = document.querySelector(`.nav-link[href="#${sec.id}"]`);
-      if (active) active.classList.add("active");
+      activateNavLink(sec.id);
     }
   });
 };
-window.addEventListener("scroll", setActive);
+window.addEventListener("scroll", () => {
+  if (lockedSectionId) {
+    activateNavLink(lockedSectionId);
+
+    if (releaseLockTimer) clearTimeout(releaseLockTimer);
+    releaseLockTimer = setTimeout(() => {
+      lockedSectionId = null;
+      setActive();
+    }, 140);
+
+    return;
+  }
+
+  setActive();
+});
+setActive();
+
+navLinks.forEach((link) =>
+  link.addEventListener("click", () => {
+    const targetId = link.getAttribute("href")?.slice(1);
+    if (!targetId) return;
+
+    lockedSectionId = targetId;
+    activateNavLink(targetId);
+
+    if (releaseLockTimer) clearTimeout(releaseLockTimer);
+  })
+);
 
 // Reveal on scroll
 const revealEls = document.querySelectorAll(
