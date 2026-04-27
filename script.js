@@ -57,6 +57,7 @@ document.querySelectorAll(".nav-link").forEach((l) =>
 // Active nav highlight on scroll
 const sections = document.querySelectorAll("section[id], header[id]");
 const navLinks = document.querySelectorAll(".nav-link");
+const sectionJumpLinks = document.querySelectorAll('a[href^="#"]');
 let lockedSectionId = null;
 let releaseLockTimer = null;
 
@@ -64,6 +65,15 @@ const activateNavLink = (targetId) => {
   navLinks.forEach((l) => l.classList.remove("active"));
   const active = document.querySelector(`.nav-link[href="#${targetId}"]`);
   if (active) active.classList.add("active");
+};
+
+const lockActiveSection = (targetId) => {
+  if (!targetId || !document.getElementById(targetId)) return;
+
+  lockedSectionId = targetId;
+  activateNavLink(targetId);
+
+  if (releaseLockTimer) clearTimeout(releaseLockTimer);
 };
 
 const setActive = () => {
@@ -105,14 +115,18 @@ setActive();
 navLinks.forEach((link) =>
   link.addEventListener("click", () => {
     const targetId = link.getAttribute("href")?.slice(1);
-    if (!targetId) return;
-
-    lockedSectionId = targetId;
-    activateNavLink(targetId);
-
-    if (releaseLockTimer) clearTimeout(releaseLockTimer);
+    lockActiveSection(targetId);
   })
 );
+
+sectionJumpLinks.forEach((link) => {
+  if (link.classList.contains("nav-link")) return;
+
+  link.addEventListener("click", () => {
+    const targetId = link.getAttribute("href")?.slice(1);
+    lockActiveSection(targetId);
+  });
+});
 
 // Reveal on scroll
 const revealEls = document.querySelectorAll(
