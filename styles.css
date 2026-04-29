@@ -100,7 +100,7 @@ html[data-theme="light"] .bg-glow {
   backdrop-filter: blur(18px);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
-    rgba(11, 11, 13, 0.74);
+    rgba(11, 11, 13, 0.88);
   border-bottom: 1px solid rgba(245, 165, 36, 0.12);
   box-shadow: 0 12px 32px -24px rgba(0, 0, 0, 0.9);
   overflow: hidden;
@@ -140,7 +140,7 @@ html[data-theme="light"] .bg-glow {
   border-color: rgba(245, 165, 36, 0.16);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
-    rgba(11, 11, 13, 0.82);
+    rgba(11, 11, 13, 0.92);
   box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.96);
 }
 html[data-theme="light"] .nav {
@@ -317,14 +317,14 @@ html[data-theme="light"] .theme-toggle {
   }
   .nav.scrolled {
     top: 1rem;
-    width: min(760px, calc(100% - 2rem));
+    width: min(640px, calc(100% - 2rem));
     transform: translateX(-50%);
     padding: .48rem .75rem;
     border: 1px solid rgba(245, 165, 36, 0.16);
     border-radius: 999px;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015)),
-      rgba(11, 11, 13, 0.78);
+      rgba(11, 11, 13, 0.92);
     box-shadow:
       0 22px 45px -30px rgba(0, 0, 0, 0.95),
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
