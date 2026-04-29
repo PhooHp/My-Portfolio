@@ -33,11 +33,11 @@
 html { scroll-behavior: smooth; }
 
 html[data-theme="light"] {
-  --bg: #f3efe6;
-  --bg-2: #e8dfcf;
+  --bg: #eee3d0;
+  --bg-2: #dfcfb5;
   --surface: #fffaf0;
-  --surface-2: #f4ead8;
-  --border: #d6c5aa;
+  --surface-2: #f0dfc4;
+  --border: #c9ad82;
   --text: #241f18;
   --text-dim: #5f5548;
   --muted: #877967;
@@ -76,13 +76,14 @@ img { max-width: 100%; display: block; }
 }
 html[data-theme="light"] .bg-grid {
   background-image:
-    linear-gradient(rgba(72, 53, 30, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(72, 53, 30, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(72, 53, 30, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(72, 53, 30, 0.1) 1px, transparent 1px);
 }
 html[data-theme="light"] .bg-glow {
   background:
-    radial-gradient(520px circle at 12% 10%, rgba(245, 165, 36, 0.26), transparent 62%),
-    radial-gradient(760px circle at 88% 92%, rgba(102, 73, 36, 0.12), transparent 64%);
+    radial-gradient(520px circle at 12% 10%, rgba(245, 165, 36, 0.34), transparent 62%),
+    radial-gradient(760px circle at 88% 92%, rgba(102, 73, 36, 0.18), transparent 64%),
+    linear-gradient(135deg, rgba(255, 250, 240, 0.36), rgba(223, 207, 181, 0.38));
 }
 
 /* ============ NAV ============ */
