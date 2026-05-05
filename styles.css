@@ -1164,6 +1164,7 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
     width: auto;
     padding: .7rem .95rem;
     justify-content: space-between;
+    overflow: visible;
   }
   .brand {
     font-size: 1.45rem;
@@ -1231,5 +1232,52 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
     width: min(100%, 25rem);
     padding-inline: .95rem;
     line-height: 1.45;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-inline: 1.15rem;
+  }
+  .eyebrow {
+    gap: .55rem;
+    font-size: .82rem;
+    letter-spacing: 1.2px;
+  }
+  .eyebrow::before {
+    width: 20px;
+    flex: 0 0 auto;
+  }
+  .hero-title {
+    letter-spacing: 0;
+  }
+  .section {
+    padding-inline: 1.15rem;
+  }
+  .section-head {
+    gap: .8rem;
+    align-items: flex-start;
+  }
+  .section-num {
+    letter-spacing: 2px;
+    padding-inline: .6rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .stat,
+  .project,
+  .skill-card,
+  .experience-card {
+    padding: 1.15rem;
+  }
+  .contact-list li {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: .7rem;
+    padding: .75rem;
+  }
+  .contact-icon {
+    width: 40px;
+    height: 40px;
   }
 }
