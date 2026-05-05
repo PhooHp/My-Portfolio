@@ -44,13 +44,16 @@ const toggle = document.querySelector(".nav-toggle");
 const links = document.querySelector(".nav-links");
 toggle.addEventListener("click", () => {
   const open = links.classList.toggle("open");
+  nav.classList.toggle("open", open);
   toggle.classList.toggle("open", open);
   toggle.setAttribute("aria-expanded", open);
 });
 document.querySelectorAll(".nav-link").forEach((l) =>
   l.addEventListener("click", () => {
     links.classList.remove("open");
+    nav.classList.remove("open");
     toggle.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
   })
 );
 
